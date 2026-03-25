@@ -3,17 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>College Tech Talk 2026</title>
+  <title>Campus Event Registration</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>College Tech Talk 2026</h1>
-      <p class="subtitle">Empowering Innovation & Ideas</p>
-    </header>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="overlay">
+      <div class="container">
+        <h1>Campus Event Registration System</h1>
+        <p>Register for our upcoming college tech event quickly and easily.</p>
+        <a href="#register" class="cta-btn">Register Now</a>
+      </div>
+    </div>
+  </header>
 
-    <div class="card">
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Event Details -->
+    <section class="card event-card">
+      <h2>Event Details</h2>
+      <ul class="event-info">
+        <li><strong>Event Name:</strong> AI & Cloud Workshop 2026</li>
+        <li><strong>Date:</strong> 10 April 2026</li>
+        <li><strong>Time:</strong> 10:00 AM – 1:00 PM</li>
+        <li><strong>Venue:</strong> Seminar Hall, AJCE</li>
+      </ul>
+    </section>
+
+    <!-- Registration Form -->
+    <section class="card form-card" id="register">
       <h2>Register Now</h2>
       <form id="registrationForm">
         <div class="form-group">
@@ -22,25 +41,42 @@
         </div>
 
         <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="example@domain.com" required />
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="Enter your email" required />
         </div>
 
         <div class="form-group">
           <label for="department">Department</label>
-          <input type="text" id="department" placeholder="Your department" required />
+          <select id="department" required>
+            <option value="">Select Department</option>
+            <option>BCA</option>
+            <option>MCA</option>
+            <option>BBA</option>
+            <option>BCom</option>
+          </select>
         </div>
 
-        <button type="submit">🚀 Register</button>
+        <div class="form-group">
+          <label for="year">Year of Study</label>
+          <select id="year" required>
+            <option value="">Select Year</option>
+            <option>1st Year</option>
+            <option>2nd Year</option>
+            <option>3rd Year</option>
+          </select>
+        </div>
+
+        <button type="submit">🚀 Submit Registration</button>
       </form>
 
-      <p id="result"></p>
-    </div>
+      <div id="message"></div>
+    </section>
+  </main>
 
-    <footer>
-      <p>© 2026 College Tech Talk | Designed with ❤️</p>
-    </footer>
-  </div>
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Campus Event Registration System | Designed with ❤️</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
