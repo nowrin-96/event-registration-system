@@ -1,18 +1,30 @@
-document.getElementById("registrationForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("registrationForm");
+  const messageBox = document.getElementById("message");
 
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const department = document.getElementById("department").value.trim();
-  const result = document.getElementById("result");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-  if (!name || !email || !department) {
-    result.style.color = "red";
-    result.textContent = "⚠️ Please fill in all fields.";
-    return;
-  }
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const department = document.getElementById("department").value;
+    const year = document.getElementById("year").value;
 
-  result.style.color = "green";
-  result.textContent = `✅ Registration successful for ${name} from ${department}.`;
-  document.getElementById("registrationForm").reset();
+    if (!name || !email || !department || !year) {
+      messageBox.style.color = "red";
+      messageBox.textContent = "⚠️ Please fill in all required fields.";
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      messageBox.style.color = "red";
+      messageBox.textContent = "⚠️ Please enter a valid email address.";
+      return;
+    }
+
+    messageBox.style.color = "green";
+    messageBox.textContent = `✅ Registration successful for ${name} (${year}, ${department}).`;
+    form.reset();
+  });
 });
